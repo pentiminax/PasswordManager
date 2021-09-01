@@ -130,6 +130,7 @@ namespace PasswordManager
             this.ajouterUneEntréeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
             this.ajouterUneEntréeToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
             this.ajouterUneEntréeToolStripMenuItem.Text = "Ajouter une entrée";
+            this.ajouterUneEntréeToolStripMenuItem.Click += new System.EventHandler(this.AddEntry);
             // 
             // copierLeNomDutilisateurToolStripMenuItem
             // 
@@ -164,6 +165,7 @@ namespace PasswordManager
             this.DtgEntries.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtgEntries.Location = new System.Drawing.Point(0, 24);
             this.DtgEntries.Name = "DtgEntries";
+            this.DtgEntries.ReadOnly = true;
             this.DtgEntries.RowTemplate.Height = 25;
             this.DtgEntries.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DtgEntries.ShowCellToolTips = false;

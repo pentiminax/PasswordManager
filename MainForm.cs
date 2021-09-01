@@ -22,8 +22,31 @@ namespace PasswordManager
         public MainForm()
         {
             InitializeComponent();
+
             Database = new Database();
-            configuration = new Configuration();
+
+            FormClosing += OnFormClosing;
+            Load += OnFormLoad;
+            Shown += OnFormShown;
+        }
+
+        private void OnFormShown(object sender, EventArgs e)
+        {
+            if (configuration.LastUsedFile is not null)
+            {
+                OpenDatabaseForm openDatabaseForm = new OpenDatabaseForm(configuration.LastUsedFile);
+
+                if (openDatabaseForm.ShowDialog(this) == DialogResult.OK)
+                {
+                    DtgEntries.DataSource = Database.Entries;
+                    Text = $"MyPasswordManager - {Path.GetFileName(configuration.LastUsedFile)}";
+                }
+            }
+        }
+
+        private void OnFormLoad(object sender, EventArgs e)
+        {
+            configuration = ConfigurationHelper.LoadConfiguration();
         }
 
         private void NewDatabase(object sender, EventArgs e)
@@ -35,7 +58,7 @@ namespace PasswordManager
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 var dbFile = sfd.FileName;
-                NewDatabaseForm newDatabaseForm = new();
+                NewDatabaseForm newDatabaseForm = new(); 
 
                 if (newDatabaseForm.ShowDialog(this) == DialogResult.OK)
                 {
@@ -47,6 +70,22 @@ namespace PasswordManager
 
                     Text = $"MyPasswordManager - {Path.GetFileName(dbFile)}";
                 }
+            }
+        }
+
+        private void OnFormClosing(object sender, FormClosingEventArgs e)
+        {
+            ConfigurationHelper.SaveConfiguration(configuration);
+        }
+
+        private void AddEntry(object sender, EventArgs e)
+        {
+            EntryForm entryForm = new();
+
+            if (entryForm.ShowDialog(this) == DialogResult.OK)
+            {
+                Database.Entries.Add(entryForm.Entry);
+                DatabaseHelper.SaveDatabase(configuration.LastUsedFile, Database);
             }
         }
     }

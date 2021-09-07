@@ -13,4 +13,4 @@ Dépôt pour la création d'un gestionnaire de mot de passe en C#.
 
 ### YouTube
 
-[![Épisode 1](http://i3.ytimg.com/vi/DM4bSyMYpIc/maxresdefault.jpg)](https://www.youtube.com/watch?v=DM4bSyMYpIc)
+[![Épisode 1](https://i3.ytimg.com/vi/DM4bSyMYpIc/maxresdefault.jpg)](https://www.youtube.com/watch?v=DM4bSyMYpIc)

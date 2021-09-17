@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace PasswordManager.Entity
@@ -10,6 +11,8 @@ namespace PasswordManager.Entity
     public class Database
     {
         private string hash;
+
+        [JsonIgnore]
         public string Hash
         {
             get => hash;

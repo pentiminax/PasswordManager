@@ -105,7 +105,6 @@ namespace PasswordManager.Helper
             byte[] LenK = new byte[4];
             byte[] LenIV = new byte[4];
 
-
             using (var inFs = new FileStream(inFile, FileMode.Open))
             {
                 inFs.Seek(0, SeekOrigin.Begin);

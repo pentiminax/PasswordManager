@@ -23,7 +23,7 @@ namespace PasswordManager
         {
             InitializeComponent();
 
-            Database = new Database();
+            Database = new();
 
             FormClosing += OnFormClosing;
             Load += OnFormLoad;
@@ -34,7 +34,7 @@ namespace PasswordManager
         {
             if (configuration.LastUsedFile is not null)
             {
-                OpenDatabaseForm openDatabaseForm = new OpenDatabaseForm(configuration.LastUsedFile);
+                OpenDatabaseForm openDatabaseForm = new(configuration.LastUsedFile);
 
                 if (openDatabaseForm.ShowDialog(this) == DialogResult.OK)
                 {
@@ -47,6 +47,16 @@ namespace PasswordManager
         private void OnFormLoad(object sender, EventArgs e)
         {
             configuration = ConfigurationHelper.LoadConfiguration();
+
+            if (!File.Exists(configuration.LastUsedFile))
+            {
+                configuration.LastUsedFile = null;
+            }
+        }
+
+        private void OnFormClosing(object sender, FormClosingEventArgs e)
+        {
+            ConfigurationHelper.SaveConfiguration(configuration);
         }
 
         private void NewDatabase(object sender, EventArgs e)
@@ -58,7 +68,7 @@ namespace PasswordManager
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 var dbFile = sfd.FileName;
-                NewDatabaseForm newDatabaseForm = new(); 
+                NewDatabaseForm newDatabaseForm = new();
 
                 if (newDatabaseForm.ShowDialog(this) == DialogResult.OK)
                 {
@@ -73,9 +83,12 @@ namespace PasswordManager
             }
         }
 
-        private void OnFormClosing(object sender, FormClosingEventArgs e)
+        private void OpenDatabase(object sender, EventArgs e)
         {
-            ConfigurationHelper.SaveConfiguration(configuration);
+            OpenFileDialog ofd = new();
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+                OpenDatabaseForm(ofd.FileName);
         }
 
         private void AddEntry(object sender, EventArgs e)
@@ -87,6 +100,74 @@ namespace PasswordManager
                 Database.Entries.Add(entryForm.Entry);
                 DatabaseHelper.SaveDatabase(configuration.LastUsedFile, Database);
             }
+        }
+
+        private void ExitApplication(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void CloseDatabase(object sender, EventArgs e)
+        {
+            Database = new();
+            DtgEntries.DataSource = null;
+            Text = "MyPasswordManager";
+            configuration.LastUsedFile = null;
+        }
+
+        private void SaveDatabase(object sender, EventArgs e)
+        {
+            DatabaseHelper.SaveDatabase(configuration.LastUsedFile, Database);
+        }
+
+        private void LockDatabase(object sender, EventArgs e)
+        {
+            Database = new();
+            DtgEntries.DataSource = null;
+            Text = "MyPasswordManager";
+            OpenDatabaseForm(configuration.LastUsedFile);
+        }
+
+        private void OpenDatabaseForm(string dbFile)
+        {
+            OpenDatabaseForm openDatabaseForm = new(dbFile);
+
+            if (openDatabaseForm.ShowDialog(this) == DialogResult.OK)
+            {
+                DtgEntries.DataSource = Database.Entries;
+                Text = $"MyPasswordManager - {Path.GetFileName(dbFile)}";
+                configuration.LastUsedFile = dbFile;
+            }
+        }
+
+        private void MenuFileOpening(object sender, EventArgs e)
+        {
+            if (Database.Hash is not null)
+                ToggleFileMenu(isEnabled: true);
+            else
+                ToggleFileMenu(isEnabled: false);
+        }
+
+        private void MenuEntryOpening(object sender, EventArgs e)
+        {
+            if (Database.Hash is not null)
+                ToggleEntryMenu(isEnabled: true);
+            else
+                ToggleEntryMenu(isEnabled: false);
+        }
+
+        private void ToggleFileMenu(bool isEnabled)
+        {
+            menuSaveDatabase.Enabled = isEnabled;
+            menuCloseDatabase.Enabled = isEnabled;
+            menuLockDatabase.Enabled = isEnabled;
+        }
+
+        private void ToggleEntryMenu(bool isEnabled)
+        {
+            menuAddEntry.Enabled = isEnabled;
+            menuCopyUsername.Enabled = isEnabled;
+            menuCopyPassword.Enabled = isEnabled;
         }
     }
 }

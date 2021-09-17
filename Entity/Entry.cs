@@ -47,7 +47,7 @@ namespace PasswordManager.Entity
 
         private string link;
 
-        [DisplayName("Adresse (URL")]
+        [DisplayName("Adresse (URL)")]
         public string Link
         {
             get => link;

@@ -38,7 +38,7 @@ namespace PasswordManager
             else
             {
                 MessageBox.Show("Le mot de passe et sa confirmation ne sont pas identiques.",
-                   "La validation a échoué", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                      "La validation a échoué", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 DialogResult = DialogResult.None;
             }
         }

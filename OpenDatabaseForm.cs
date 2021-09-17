@@ -26,6 +26,11 @@ namespace PasswordManager
             Text += $" - {Path.GetFileName(dbFile)}";
         }
 
+        private void TogglePasswordChar(object sender, EventArgs e)
+        {
+            tbxMasterPassword.UseSystemPasswordChar = !tbxMasterPassword.UseSystemPasswordChar;
+        }
+
         private void Accept(object sender, EventArgs e)
         {
             var hash = Security.GetHash(tbxMasterPassword.Text);
@@ -35,23 +40,17 @@ namespace PasswordManager
             {
                 var json = File.ReadAllText(file);
 
+                File.Delete(file);
+
                 ((MainForm)Owner).Database = JsonSerializer.Deserialize<Database>(json);
                 ((MainForm)Owner).Database.Hash = hash;
-
-                File.Delete(file);
             }
             else
             {
                 MessageBox.Show("Le mot de passe maître est invalide !", "MyPasswordManager", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
                 tbxMasterPassword.Clear();
                 DialogResult = DialogResult.None;
             }
-        }
-
-        private void TogglePasswordChar(object sender, EventArgs e)
-        {
-            tbxMasterPassword.UseSystemPasswordChar = !tbxMasterPassword.UseSystemPasswordChar;
         }
     }
 }

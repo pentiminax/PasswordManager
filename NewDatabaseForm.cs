@@ -27,7 +27,7 @@ namespace PasswordManager
             else
             {
                 MessageBox.Show("Les mots de passe ne correspondent pas !", "MyPasswordManager", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                DialogResult = DialogResult.None;
+                DialogResult= DialogResult.None;
             }
         }
 

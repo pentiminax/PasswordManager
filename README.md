@@ -6,7 +6,7 @@ Dépôt pour la création d'un gestionnaire de mot de passe en C#.
 
 #### Description
 
-- Gestion des évènments du formulaire principal
+- Gestion des évènements du formulaire principal
 - Création du formulaire d'ouverture de base de données
 - Création du formulaire d'ajout d'entrée
 - Chargement de la base données

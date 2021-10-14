@@ -6,7 +6,11 @@ Dépôt pour la création d'un gestionnaire de mot de passe en C#.
 
 #### Description
 
-TODO
+- Ouvrir une base de données existante
+- Enregistrer la base de données courante
+- Verrouiller la base de données courante
+- Fermer la base de données courante
+- Quitter l'application
 
 ### YouTube
 

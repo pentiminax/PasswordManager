@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PasswordManager.Entity
 {
-    public class Entry
+    public class Entry: ICloneable
     {
         private string uuid;
 
@@ -61,6 +61,11 @@ namespace PasswordManager.Entity
         {
             get => createdAt;
             set => createdAt = value;
+        }
+
+        public object Clone()
+        {
+            return MemberwiseClone();
         }
     }
 }

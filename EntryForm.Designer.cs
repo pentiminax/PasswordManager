@@ -52,7 +52,7 @@ namespace PasswordManager
             this.btnAccept.Location = new System.Drawing.Point(198, 396);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(75, 23);
-            this.btnAccept.TabIndex = 6;
+            this.btnAccept.TabIndex = 5;
             this.btnAccept.Text = "OK";
             this.btnAccept.UseVisualStyleBackColor = true;
             this.btnAccept.Click += new System.EventHandler(this.Accept);
@@ -63,7 +63,7 @@ namespace PasswordManager
             this.btnCancel.Location = new System.Drawing.Point(279, 396);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 5;
+            this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "Annuler";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
@@ -72,7 +72,7 @@ namespace PasswordManager
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.92617F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.07383F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
             this.tableLayoutPanel1.Controls.Add(this.tbxLink, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.tbxConfirm, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.tbxPassword, 1, 2);
@@ -98,36 +98,36 @@ namespace PasswordManager
             // tbxLink
             // 
             this.tbxLink.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbxLink.Location = new System.Drawing.Point(118, 327);
+            this.tbxLink.Location = new System.Drawing.Point(117, 327);
             this.tbxLink.Name = "tbxLink";
-            this.tbxLink.Size = new System.Drawing.Size(175, 23);
-            this.tbxLink.TabIndex = 8;
+            this.tbxLink.Size = new System.Drawing.Size(174, 23);
+            this.tbxLink.TabIndex = 4;
             // 
             // tbxConfirm
             // 
             this.tbxConfirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbxConfirm.Location = new System.Drawing.Point(118, 251);
+            this.tbxConfirm.Location = new System.Drawing.Point(117, 251);
             this.tbxConfirm.Name = "tbxConfirm";
-            this.tbxConfirm.Size = new System.Drawing.Size(175, 23);
-            this.tbxConfirm.TabIndex = 8;
+            this.tbxConfirm.Size = new System.Drawing.Size(174, 23);
+            this.tbxConfirm.TabIndex = 3;
             this.tbxConfirm.UseSystemPasswordChar = true;
             // 
             // tbxPassword
             // 
             this.tbxPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbxPassword.Location = new System.Drawing.Point(118, 176);
+            this.tbxPassword.Location = new System.Drawing.Point(117, 176);
             this.tbxPassword.Name = "tbxPassword";
-            this.tbxPassword.Size = new System.Drawing.Size(175, 23);
-            this.tbxPassword.TabIndex = 8;
+            this.tbxPassword.Size = new System.Drawing.Size(174, 23);
+            this.tbxPassword.TabIndex = 2;
             this.tbxPassword.UseSystemPasswordChar = true;
             // 
             // tbxUsername
             // 
             this.tbxUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbxUsername.Location = new System.Drawing.Point(118, 101);
+            this.tbxUsername.Location = new System.Drawing.Point(117, 101);
             this.tbxUsername.Name = "tbxUsername";
-            this.tbxUsername.Size = new System.Drawing.Size(175, 23);
-            this.tbxUsername.TabIndex = 8;
+            this.tbxUsername.Size = new System.Drawing.Size(174, 23);
+            this.tbxUsername.TabIndex = 1;
             // 
             // label3
             // 
@@ -135,7 +135,7 @@ namespace PasswordManager
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(3, 105);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 15);
+            this.label3.Size = new System.Drawing.Size(108, 15);
             this.label3.TabIndex = 2;
             this.label3.Text = "Nom d\'utilisateur :";
             // 
@@ -145,7 +145,7 @@ namespace PasswordManager
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 15);
+            this.label1.Size = new System.Drawing.Size(108, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Titre :";
             // 
@@ -155,7 +155,7 @@ namespace PasswordManager
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(3, 180);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(109, 15);
+            this.label4.Size = new System.Drawing.Size(108, 15);
             this.label4.TabIndex = 3;
             this.label4.Text = "Mot de passe :";
             // 
@@ -165,7 +165,7 @@ namespace PasswordManager
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(3, 255);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 15);
+            this.label2.Size = new System.Drawing.Size(108, 15);
             this.label2.TabIndex = 1;
             this.label2.Text = "Confirmation :";
             // 
@@ -175,17 +175,17 @@ namespace PasswordManager
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(3, 331);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(109, 15);
+            this.label5.Size = new System.Drawing.Size(108, 15);
             this.label5.TabIndex = 4;
             this.label5.Text = "Adresse (URL) :";
             // 
             // btnTogglePasswordChar
             // 
             this.btnTogglePasswordChar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTogglePasswordChar.Location = new System.Drawing.Point(299, 176);
+            this.btnTogglePasswordChar.Location = new System.Drawing.Point(297, 176);
             this.btnTogglePasswordChar.Name = "btnTogglePasswordChar";
-            this.btnTogglePasswordChar.Size = new System.Drawing.Size(40, 23);
-            this.btnTogglePasswordChar.TabIndex = 6;
+            this.btnTogglePasswordChar.Size = new System.Drawing.Size(42, 23);
+            this.btnTogglePasswordChar.TabIndex = 7;
             this.btnTogglePasswordChar.Text = "***";
             this.btnTogglePasswordChar.UseVisualStyleBackColor = true;
             this.btnTogglePasswordChar.Click += new System.EventHandler(this.TogglePasswordChar);
@@ -193,10 +193,10 @@ namespace PasswordManager
             // tbxTitle
             // 
             this.tbxTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbxTitle.Location = new System.Drawing.Point(118, 26);
+            this.tbxTitle.Location = new System.Drawing.Point(117, 26);
             this.tbxTitle.Name = "tbxTitle";
-            this.tbxTitle.Size = new System.Drawing.Size(175, 23);
-            this.tbxTitle.TabIndex = 7;
+            this.tbxTitle.Size = new System.Drawing.Size(174, 23);
+            this.tbxTitle.TabIndex = 0;
             // 
             // EntryForm
             // 
@@ -214,6 +214,8 @@ namespace PasswordManager
             this.Name = "EntryForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Ajouter un entrée";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnFormClosing);
+            this.Load += new System.EventHandler(this.OnFormLoad);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

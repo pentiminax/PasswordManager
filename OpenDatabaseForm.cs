@@ -52,5 +52,10 @@ namespace PasswordManager
                 DialogResult = DialogResult.None;
             }
         }
+
+        private void OnFormLoad(object sender, EventArgs e)
+        {
+            tbxMasterPassword.Select();
+        }
     }
 }

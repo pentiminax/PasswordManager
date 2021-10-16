@@ -29,7 +29,8 @@ namespace PasswordManager
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.menuFile = new System.Windows.Forms.ToolStripMenuItem();
             this.menuNewDatabase = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,8 +44,15 @@ namespace PasswordManager
             this.menuCopyUsername = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCopyPassword = new System.Windows.Forms.ToolStripMenuItem();
             this.DtgEntries = new System.Windows.Forms.DataGridView();
+            this.contextMenuDtg = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuCopyUsername = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuCopyPassword = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuAddEntry = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuEditEntry = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuDeleteEntry = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgEntries)).BeginInit();
+            this.contextMenuDtg.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -145,6 +153,7 @@ namespace PasswordManager
             this.menuCopyUsername.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
             this.menuCopyUsername.Size = new System.Drawing.Size(258, 22);
             this.menuCopyUsername.Text = "Copier le nom  d\'utilisateur";
+            this.menuCopyUsername.Click += new System.EventHandler(this.CopyUsername);
             // 
             // menuCopyPassword
             // 
@@ -152,6 +161,7 @@ namespace PasswordManager
             this.menuCopyPassword.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
             this.menuCopyPassword.Size = new System.Drawing.Size(258, 22);
             this.menuCopyPassword.Text = "Copier le mot de passe";
+            this.menuCopyPassword.Click += new System.EventHandler(this.CopyPassword);
             // 
             // DtgEntries
             // 
@@ -161,14 +171,15 @@ namespace PasswordManager
             this.DtgEntries.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DtgEntries.BackgroundColor = System.Drawing.Color.White;
             this.DtgEntries.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DtgEntries.DefaultCellStyle = dataGridViewCellStyle2;
+            this.DtgEntries.ContextMenuStrip = this.contextMenuDtg;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DtgEntries.DefaultCellStyle = dataGridViewCellStyle1;
             this.DtgEntries.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtgEntries.Location = new System.Drawing.Point(0, 24);
             this.DtgEntries.Name = "DtgEntries";
@@ -179,6 +190,52 @@ namespace PasswordManager
             this.DtgEntries.ShowEditingIcon = false;
             this.DtgEntries.Size = new System.Drawing.Size(784, 537);
             this.DtgEntries.TabIndex = 1;
+            this.DtgEntries.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DtgEntriesCellFormatting);
+            // 
+            // contextMenuDtg
+            // 
+            this.contextMenuDtg.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.contextMenuCopyUsername,
+            this.contextMenuCopyPassword,
+            this.contextMenuAddEntry,
+            this.contextMenuEditEntry,
+            this.contextMenuDeleteEntry});
+            this.contextMenuDtg.Name = "contextMenuDtg";
+            this.contextMenuDtg.Size = new System.Drawing.Size(215, 136);
+            // 
+            // contextMenuCopyUsername
+            // 
+            this.contextMenuCopyUsername.Name = "contextMenuCopyUsername";
+            this.contextMenuCopyUsername.Size = new System.Drawing.Size(214, 22);
+            this.contextMenuCopyUsername.Text = "Copier le nom d\'utilisateur";
+            this.contextMenuCopyUsername.Click += new System.EventHandler(this.CopyUsername);
+            // 
+            // contextMenuCopyPassword
+            // 
+            this.contextMenuCopyPassword.Name = "contextMenuCopyPassword";
+            this.contextMenuCopyPassword.Size = new System.Drawing.Size(214, 22);
+            this.contextMenuCopyPassword.Text = "Copier le mot de passe";
+            this.contextMenuCopyPassword.Click += new System.EventHandler(this.CopyPassword);
+            // 
+            // contextMenuAddEntry
+            // 
+            this.contextMenuAddEntry.Name = "contextMenuAddEntry";
+            this.contextMenuAddEntry.Size = new System.Drawing.Size(214, 22);
+            this.contextMenuAddEntry.Text = "Ajouter une entrée";
+            this.contextMenuAddEntry.Click += new System.EventHandler(this.AddEntry);
+            // 
+            // contextMenuEditEntry
+            // 
+            this.contextMenuEditEntry.Name = "contextMenuEditEntry";
+            this.contextMenuEditEntry.Size = new System.Drawing.Size(214, 22);
+            this.contextMenuEditEntry.Text = "Modifier l\'entrée";
+            this.contextMenuEditEntry.Click += new System.EventHandler(this.EditEntry);
+            // 
+            // contextMenuDeleteEntry
+            // 
+            this.contextMenuDeleteEntry.Name = "contextMenuDeleteEntry";
+            this.contextMenuDeleteEntry.Size = new System.Drawing.Size(214, 22);
+            this.contextMenuDeleteEntry.Text = "Supprimer l\'entrée";
             // 
             // MainForm
             // 
@@ -195,6 +252,7 @@ namespace PasswordManager
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgEntries)).EndInit();
+            this.contextMenuDtg.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -215,6 +273,12 @@ namespace PasswordManager
         private System.Windows.Forms.ToolStripMenuItem menuCopyUsername;
         private System.Windows.Forms.ToolStripMenuItem menuCopyPassword;
         private System.Windows.Forms.DataGridView DtgEntries;
+        private System.Windows.Forms.ContextMenuStrip contextMenuDtg;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuCopyUsername;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuCopyPassword;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuAddEntry;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuEditEntry;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuDeleteEntry;
     }
 }
 

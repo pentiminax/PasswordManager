@@ -43,7 +43,7 @@ namespace PasswordManager
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.74468F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.25532F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tbxMasterPassword, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnTogglePasswordChar, 2, 0);
@@ -60,14 +60,14 @@ namespace PasswordManager
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 15);
+            this.label1.Size = new System.Drawing.Size(153, 15);
             this.label1.TabIndex = 3;
             this.label1.Text = "Mot de passe maître :";
             // 
             // tbxMasterPassword
             // 
             this.tbxMasterPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbxMasterPassword.Location = new System.Drawing.Point(163, 8);
+            this.tbxMasterPassword.Location = new System.Drawing.Point(162, 8);
             this.tbxMasterPassword.Name = "tbxMasterPassword";
             this.tbxMasterPassword.Size = new System.Drawing.Size(183, 23);
             this.tbxMasterPassword.TabIndex = 0;
@@ -76,9 +76,9 @@ namespace PasswordManager
             // btnTogglePasswordChar
             // 
             this.btnTogglePasswordChar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTogglePasswordChar.Location = new System.Drawing.Point(352, 8);
+            this.btnTogglePasswordChar.Location = new System.Drawing.Point(351, 8);
             this.btnTogglePasswordChar.Name = "btnTogglePasswordChar";
-            this.btnTogglePasswordChar.Size = new System.Drawing.Size(41, 23);
+            this.btnTogglePasswordChar.Size = new System.Drawing.Size(42, 23);
             this.btnTogglePasswordChar.TabIndex = 5;
             this.btnTogglePasswordChar.Text = "***";
             this.btnTogglePasswordChar.UseVisualStyleBackColor = true;
@@ -121,6 +121,7 @@ namespace PasswordManager
             this.Name = "OpenDatabaseForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MyPasswordManager";
+            this.Load += new System.EventHandler(this.OnFormLoad);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

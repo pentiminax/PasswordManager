@@ -15,10 +15,16 @@ namespace PasswordManager
     public partial class EntryForm : Form
     {
         public Entry Entry;
+        private Entry initEntry;
 
-        public EntryForm()
+        public EntryForm(Entry entry = null)
         {
             InitializeComponent();
+
+            if (entry != null)
+            {
+                Entry = entry;
+            }
         }
 
         private void Accept(object sender, EventArgs e)
@@ -47,6 +53,33 @@ namespace PasswordManager
         {
             tbxPassword.UseSystemPasswordChar = !tbxPassword.UseSystemPasswordChar;
             tbxConfirm.UseSystemPasswordChar = !tbxConfirm.UseSystemPasswordChar;
+        }
+
+        private void OnFormLoad(object sender, EventArgs e)
+        {
+            tbxTitle.Select();
+
+            if (Entry != null)
+            {
+                initEntry = (Entry)Entry.Clone();
+
+                tbxTitle.DataBindings.Add("Text", Entry, "Title");
+                tbxUsername.DataBindings.Add("Text", Entry, "Username");
+                tbxPassword.DataBindings.Add("Text", Entry, "Password");
+                tbxConfirm.Text = tbxPassword.Text;
+                tbxLink.DataBindings.Add("Text", Entry, "Link");
+            }
+        }
+
+        private void OnFormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (DialogResult == DialogResult.Cancel)
+            {
+                Entry.Title = initEntry.Title;
+                Entry.Username = initEntry.Username;
+                Entry.Password = initEntry.Password;
+                Entry.Link = initEntry.Link;
+            }
         }
     }
 }

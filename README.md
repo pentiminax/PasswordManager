@@ -2,15 +2,11 @@
  
 Dépôt pour la création d'un gestionnaire de mot de passe en C#.
 
-## Épisode 3
+## Épisode 4
 
 #### Description
 
-- Ouvrir une base de données existante
-- Enregistrer la base de données courante
-- Verrouiller la base de données courante
-- Fermer la base de données courante
-- Quitter l'application
+- TODO
 
 ### YouTube
 

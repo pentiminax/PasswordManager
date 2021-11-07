@@ -72,7 +72,7 @@ namespace PasswordManager
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.92617F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.07383F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 48F));
             this.tableLayoutPanel1.Controls.Add(this.tbxLink, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.tbxConfirm, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.tbxPassword, 1, 2);
@@ -98,9 +98,10 @@ namespace PasswordManager
             // tbxLink
             // 
             this.tbxLink.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbxLink.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.tbxLink.Location = new System.Drawing.Point(117, 327);
             this.tbxLink.Name = "tbxLink";
-            this.tbxLink.Size = new System.Drawing.Size(174, 23);
+            this.tbxLink.Size = new System.Drawing.Size(173, 23);
             this.tbxLink.TabIndex = 4;
             // 
             // tbxConfirm
@@ -108,7 +109,7 @@ namespace PasswordManager
             this.tbxConfirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tbxConfirm.Location = new System.Drawing.Point(117, 251);
             this.tbxConfirm.Name = "tbxConfirm";
-            this.tbxConfirm.Size = new System.Drawing.Size(174, 23);
+            this.tbxConfirm.Size = new System.Drawing.Size(173, 23);
             this.tbxConfirm.TabIndex = 3;
             this.tbxConfirm.UseSystemPasswordChar = true;
             // 
@@ -117,7 +118,7 @@ namespace PasswordManager
             this.tbxPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tbxPassword.Location = new System.Drawing.Point(117, 176);
             this.tbxPassword.Name = "tbxPassword";
-            this.tbxPassword.Size = new System.Drawing.Size(174, 23);
+            this.tbxPassword.Size = new System.Drawing.Size(173, 23);
             this.tbxPassword.TabIndex = 2;
             this.tbxPassword.UseSystemPasswordChar = true;
             // 
@@ -126,7 +127,7 @@ namespace PasswordManager
             this.tbxUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tbxUsername.Location = new System.Drawing.Point(117, 101);
             this.tbxUsername.Name = "tbxUsername";
-            this.tbxUsername.Size = new System.Drawing.Size(174, 23);
+            this.tbxUsername.Size = new System.Drawing.Size(173, 23);
             this.tbxUsername.TabIndex = 1;
             // 
             // label3
@@ -182,9 +183,9 @@ namespace PasswordManager
             // btnTogglePasswordChar
             // 
             this.btnTogglePasswordChar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTogglePasswordChar.Location = new System.Drawing.Point(297, 176);
+            this.btnTogglePasswordChar.Location = new System.Drawing.Point(296, 176);
             this.btnTogglePasswordChar.Name = "btnTogglePasswordChar";
-            this.btnTogglePasswordChar.Size = new System.Drawing.Size(42, 23);
+            this.btnTogglePasswordChar.Size = new System.Drawing.Size(43, 23);
             this.btnTogglePasswordChar.TabIndex = 7;
             this.btnTogglePasswordChar.Text = "***";
             this.btnTogglePasswordChar.UseVisualStyleBackColor = true;
@@ -195,7 +196,7 @@ namespace PasswordManager
             this.tbxTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tbxTitle.Location = new System.Drawing.Point(117, 26);
             this.tbxTitle.Name = "tbxTitle";
-            this.tbxTitle.Size = new System.Drawing.Size(174, 23);
+            this.tbxTitle.Size = new System.Drawing.Size(173, 23);
             this.tbxTitle.TabIndex = 0;
             // 
             // EntryForm

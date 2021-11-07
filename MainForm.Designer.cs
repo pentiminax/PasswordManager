@@ -31,6 +31,7 @@ namespace PasswordManager
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.menuFile = new System.Windows.Forms.ToolStripMenuItem();
             this.menuNewDatabase = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,9 +51,14 @@ namespace PasswordManager
             this.contextMenuAddEntry = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuEditEntry = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuDeleteEntry = new System.Windows.Forms.ToolStripMenuItem();
+            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.contextMenuNotify = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuLockDatabase = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgEntries)).BeginInit();
             this.contextMenuDtg.SuspendLayout();
+            this.contextMenuNotify.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -236,6 +242,37 @@ namespace PasswordManager
             this.contextMenuDeleteEntry.Name = "contextMenuDeleteEntry";
             this.contextMenuDeleteEntry.Size = new System.Drawing.Size(214, 22);
             this.contextMenuDeleteEntry.Text = "Supprimer l\'entrée";
+            this.contextMenuDeleteEntry.Click += new System.EventHandler(this.DeleteEntry);
+            // 
+            // notifyIcon
+            // 
+            this.notifyIcon.ContextMenuStrip = this.contextMenuNotify;
+            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
+            this.notifyIcon.Text = "MyPasswordManager";
+            this.notifyIcon.Visible = true;
+            // 
+            // contextMenuNotify
+            // 
+            this.contextMenuNotify.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.contextMenuLockDatabase,
+            this.contextMenuExit});
+            this.contextMenuNotify.Name = "contextMenuNotify";
+            this.contextMenuNotify.Size = new System.Drawing.Size(224, 48);
+            this.contextMenuNotify.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuNotifyOpening);
+            // 
+            // contextMenuLockDatabase
+            // 
+            this.contextMenuLockDatabase.Name = "contextMenuLockDatabase";
+            this.contextMenuLockDatabase.Size = new System.Drawing.Size(223, 22);
+            this.contextMenuLockDatabase.Text = "Verrouiller l\'espace de travail";
+            this.contextMenuLockDatabase.Click += new System.EventHandler(this.LockDatabase);
+            // 
+            // contextMenuExit
+            // 
+            this.contextMenuExit.Name = "contextMenuExit";
+            this.contextMenuExit.Size = new System.Drawing.Size(223, 22);
+            this.contextMenuExit.Text = "Quitter";
+            this.contextMenuExit.Click += new System.EventHandler(this.ExitApplication);
             // 
             // MainForm
             // 
@@ -245,6 +282,7 @@ namespace PasswordManager
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.DtgEntries);
             this.Controls.Add(this.menuStrip);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -253,6 +291,7 @@ namespace PasswordManager
             this.menuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgEntries)).EndInit();
             this.contextMenuDtg.ResumeLayout(false);
+            this.contextMenuNotify.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,6 +318,10 @@ namespace PasswordManager
         private System.Windows.Forms.ToolStripMenuItem contextMenuAddEntry;
         private System.Windows.Forms.ToolStripMenuItem contextMenuEditEntry;
         private System.Windows.Forms.ToolStripMenuItem contextMenuDeleteEntry;
+        private System.Windows.Forms.NotifyIcon notifyIcon;
+        private System.Windows.Forms.ContextMenuStrip contextMenuNotify;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuLockDatabase;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuExit;
     }
 }
 

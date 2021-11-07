@@ -1,14 +1,8 @@
 ﻿using PasswordManager.Entity;
 using PasswordManager.Helper;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PasswordManager
@@ -62,6 +56,9 @@ namespace PasswordManager
         private void OnFormClosing(object sender, FormClosingEventArgs e)
         {
             ConfigurationHelper.SaveConfiguration(configuration);
+
+            if (Database != null)
+                DatabaseHelper.SaveDatabase(configuration.LastUsedFile, Database);
         }
         #endregion
 
@@ -75,7 +72,36 @@ namespace PasswordManager
                 Database.Entries.Add(entryForm.Entry);
                 DatabaseHelper.SaveDatabase(configuration.LastUsedFile, Database);
             }
-        } 
+        }
+
+        private void EditEntry(object sender, EventArgs e)
+        {
+            if (DtgEntries.SelectedRows.Count == 1)
+            {
+                SetSelectedEntry();
+
+                EntryForm entryForm = new(selectedEntry);
+                selectedEntry.Password = Security.Decrypt(selectedEntry.Password, Database.Hash);
+
+                if (entryForm.ShowDialog(this) == DialogResult.OK)
+                {
+                    DtgEntries.RefreshEdit();
+                    selectedEntry.Password = Security.Encrypt(selectedEntry.Password, Database.Hash);
+                    DatabaseHelper.SaveDatabase(configuration.LastUsedFile, Database);
+                }
+            }
+        }
+
+        private void DeleteEntry(object sender, EventArgs e)
+        {
+            SetSelectedEntry();
+
+            var dialogResult = MessageBox.Show($"Êtes-vous certain de vouloir supprimer définitivement l'entrée sélectionnée ?\n\n " +
+                $"- {selectedEntry.Title}", "MyPasswordManager", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if (dialogResult == DialogResult.OK)
+                Database.Entries.Remove(selectedEntry);
+        }
         #endregion
 
         #region Database Methods
@@ -177,6 +203,12 @@ namespace PasswordManager
             menuCopyUsername.Enabled = isEnabled;
             menuCopyPassword.Enabled = isEnabled;
         } 
+
+        private void ToggleContextMenuNotify(bool isEnabled)
+        {
+            contextMenuLockDatabase.Enabled = isEnabled;
+            contextMenuExit.Enabled = isEnabled;
+        }
         #endregion
 
         #region Copy Methods
@@ -210,27 +242,19 @@ namespace PasswordManager
             }
         }
 
-        private void EditEntry(object sender, EventArgs e)
-        {
-            if (DtgEntries.SelectedRows.Count == 1)
-            {
-                SetSelectedEntry();
-
-                EntryForm entryForm = new(selectedEntry);
-                selectedEntry.Password = Security.Decrypt(selectedEntry.Password, Database.Hash);
-
-                if (entryForm.ShowDialog(this) == DialogResult.OK)
-                {
-                    DtgEntries.RefreshEdit();
-                    selectedEntry.Password = Security.Encrypt(selectedEntry.Password, Database.Hash);
-                    DatabaseHelper.SaveDatabase(configuration.LastUsedFile, Database);
-                }
-            }
-        }
 
         private void SetSelectedEntry()
         {
             selectedEntry = (Entry)DtgEntries.CurrentRow.DataBoundItem;
         }
+
+        private void contextMenuNotifyOpening(object sender, CancelEventArgs e)
+        {
+            if (Database.Hash is not null)
+                ToggleContextMenuNotify(isEnabled: true);
+            else
+                ToggleContextMenuNotify(isEnabled: false);
+        }
+
     }
 }

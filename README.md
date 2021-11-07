@@ -6,7 +6,10 @@ Dépôt pour la création d'un gestionnaire de mot de passe en C#.
 
 #### Description
 
-- TODO
+- Copier le nom d'utilisateur
+- Copier le mot de passe
+- Cacher le mot de passe à l'affichage du tableau
+- Modifier une entrée
 
 ### YouTube
 
